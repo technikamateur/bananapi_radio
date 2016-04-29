@@ -24,7 +24,7 @@ On this website go to *releases*, copy the link adress of the latest version and
 
 Now make the setup executable:
 
-`chmod +x setup_raspido.sh`
+`chmod +x setup-raspido.sh`
 
 and run it via:
 
