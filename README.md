@@ -1,6 +1,7 @@
 # Raspido by TechnikAmateur
 ***
-##### IMPORTANT INFORMATION: All releases, wich are marked with the tag *beta* are not stable and can damage your hardware.
+##### Important information:
+All releases, wich are marked with the tag *beta* are not stable and can damage your hardware.
 The usage of raspido is your own risk! Please understand that this Software comes with NO WARRANTY! For more information read *license.txt*.
 ***
 ### About:
