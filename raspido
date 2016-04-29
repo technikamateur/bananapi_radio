@@ -1,0 +1,79 @@
+#!/bin/bash
+# raspido Copyright (C) 2016 by Daniel Körsten aka TechnikAmateur
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+#
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+#
+#You should have received a copy of the GNU General Public License
+#along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+version="1.0"
+echo -e "Welcome to raspido v$version by Technikamateur!"
+echo -e "Prüfe, ob nötige Pakete installiert sind..."
+#checking for curl
+if ! [ -f /usr/bin/curl ]
+then
+  echo -e "curl is not installed. Stopping."
+  exit 1
+fi
+sleep 0.1
+#checking for mpg321
+if ! [ -f /usr/bin/mpg321 ]
+then
+  echo -e "mpg321 is not installed. Stopping."
+  exit 1
+fi
+sleep 0.1
+#checking for python3
+if
+if ! [ -f /usr/bin/python3 ]
+then
+  echo -e "python3 is not installed. Stopping."
+  exit 1
+fi
+sleep 0.1
+#checking for sqlite3
+if ! [ -f /usr/bin/sqlite3 ]
+then
+  echo -e "sqlite3 is not installed. Stopping."
+  exit 1
+fi
+sleep 0.1
+#checking for programm data
+if ! [ -d /etc/raspido ]
+then
+  echo -e "Fatal Error: Programm data not found."
+  echo -e "Do you want me to download these files? Y/n"; read yesno
+fi
+#lets go
+if [ $# -lt 1 ]
+then
+  echo -e "Usage:"
+  echo -e "start: $0 start shortname"
+  echo -e "stop: $0 stop"
+  echo -e "add url: $0 add url shortname"
+  echo -e "delete url: $0 remove shortname"
+  echo -e "list saved url's with shortname: $0 list"
+  exit 1
+fi
+/etc/raspido/update.sh check
+clear
+echo -e "All necessary packages are installed. Everything is fine -- until now."
+echo -e "Trying to perform your command..."
+python3 /etc/raspido/main.py $1 $2 $3
+result=$(sed -ne '1,5p' /etc/raspido/bridge.txt)
+if [ result == "okay" ]
+then
+  echo -e "successfully performed."
+  rm /etc/raspido/bridge.txt
+else
+  echo -e "Command not feasible. See /etc/raspido/raspido.log for deatils."
+  rm /etc/raspido/bridge.txt
+fi
+exit 1
