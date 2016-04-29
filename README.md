@@ -28,7 +28,7 @@ Now make the setup executable:
 
 and run it via:
 
-`./raspido.sh`
+`./setup-raspido.sh`
 
 Follow the steps of the installation script.
 
