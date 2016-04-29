@@ -1,38 +1,35 @@
 # Raspido by TechnikAmateur
 ***
-#####Information: Raspido befindet sich momentan noch im Beta Status. Dies bedeutet, dass das Programm Fehler aufweisen kann und möglicherweise nicht ordnugsgemäß funktioniert. Da auf GPIO-Pins zugegriffen wird, kann kann keine Haftung für eventuell beschädigte oder zerstörte Hardware, sowie Software übernommen werden.
+##### IMPORTANT INFORMATION: All releases, wich are marked with the tag *beta* are not stable and can damage your hardware.
+The usage of raspido is your own risk! Please understand that this Software comes with NO WARRANTY! For more information read *license.txt*.
 ***
-### Über:
-Raspido ist ein Webradio, konzipiert für den Raspberry Pi und Banana Pi. Der Fokus liegt dabei auf Geschwindigkeit und einfache Bedienbarkeit.
-
-Um dies zu gewährleisten, ist Raspido in python und shell programmiert, was eine ressourcenschonende Ausführung ermöglicht. Dazu kommt eine effiziente Datenspeicherung in Form von SQLite3 Datenbanken und als Player dient mpg321, ein effizienter decoder.
-
-Im Moment werden von Raspido allerdings ausschließlich .m3u streams akzeptiert.
+### About:
+raspido is a free webradio, disgned for the Rasperry Pi and Banana Pi. It is extremly fast, easy to use and saves a lot of energy, wich leads in low energy consumption because raspido is based on python3, sqlite3, shell and mpg321.
 
 ### Installation:
-Bitte stellen sie sicher, dass folgende Pakete für einen ordnungsgemäßen Betrieb installiert sind:
+Please make sure, that the following packages are installed. They are necessary to use raspido.
 - mpg321
 - curl
 - python3
 - sqlite3
 
-Dies lässt sich via Terminal nachholen bzw. überprüfen:
+To find out or install the missing packages run the following line in the terminal:
 
 `apt-get install mpg321 curl python3 sqlite3`
 
-Anschließend zu *releases* wechseln und die neuste Version downloaden:
+On this website go to *releases*, copy the link adress of the latest version and download it:
 
-`wget (kopierte Linkadresse)`
+`wget (copied link adress)`
 
-Nun die Datei ausführbar machen:
+Now make the setup executable:
 
-`chmod +x raspido.sh`
+`chmod +x setup_raspido.sh`
 
-und ausführen mittels:
+and run it via:
 
 `./raspido.sh`
 
-und den Anweisungen des Skripts folgen.
+Follow the steps of the installation script.
 
-### Lizenz:
-GPLv3 für mehr Informationen *"license.txt"* lesen.
+### License:
+This project is licensed under GPLv3! For more information see *license.txt*.
