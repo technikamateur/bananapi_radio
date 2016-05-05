@@ -1,4 +1,6 @@
-# Raspido by TechnikAmateur ![Logo raspido](https://github.com/technikamateur/raspido/blob/master/logo/raspido_128px_transparent.png "Logo raspido")
+# Raspido by TechnikAmateur
+
+![Logo raspido](https://github.com/technikamateur/raspido/blob/master/logo/raspido_128px_transparent.png "Logo raspido")
 ***
 ##### Important information:
 All releases, wich are marked with the tag *beta* are not stable and can damage your hardware.
