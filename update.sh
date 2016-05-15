@@ -8,7 +8,7 @@ then
     rm raspido.tar.gz
   fi
   echo -e "Checking for Updates..."
-  wget --spider http://technikamateur.bplaced.net
+  wget --spider --quiet http://technikamateur.bplaced.net
   if [ "$?" != 0 ]
   then
     internet = false
@@ -20,7 +20,7 @@ then
     then
       echo -e "You have got the latest-version!"
     else
-
+      wget --quiet $update
     fi
   else
     echo "Connection to server failed! Are you online?"
@@ -28,5 +28,6 @@ then
 fi
 if [ $1 == "update" ] && [ -f /etc/raspido/raspido.tar.gz ]
 then
-  tar -xzf raspido.tar.gz -C /etc/raspido
+#alle elemente in diesem ordner müssenweg sein
+  tar xzf raspido.tar.gz -C /etc/raspido
 fi
