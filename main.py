@@ -21,15 +21,13 @@ if not os.path.exists("database"):
     print("creating database...")
     os.mkdir("database")
     connection = sqlite3.connect("database/raspido.db")
+    cursor = connection.cursor()
+    cursor.execute("""CREATE TABLE IF NOT EXISTS streams(
+                      id INTEGER PRIMARY KEY,
+                      url TEXT,
+                      shortname TEXT);""")
     connection.close()
-    print("done")
-connection = sqlite3.connect("database/raspido.db")
-cursor = connection.cursor()
-cursor.execute("""CREATE TABLE IF NOT EXISTS streams(
-                  id INTEGER PRIMARY KEY,
-                  url TEXT,
-                  shortname TEXT);""")
-connection.close()
+    print("done!")
 #functions:
 def addstream(url, shortname):
     connection = sqlite3.connect("database/raspido.db")
