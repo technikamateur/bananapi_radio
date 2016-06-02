@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import sqlite3, os, sys, time
-#create DB
+#create DB if not exists
 if not os.path.exists("database"):
     print("creating database...")
     os.mkdir("database")
@@ -32,18 +32,25 @@ if not os.path.exists("database"):
 def addstream(url, shortname):
     connection = sqlite3.connect("database/raspido.db")
     cursor = connection.cursor()
-    x = 0
     for i in range(1,100):
         try:
             cursor.execute("""INSERT INTO streams(id, url, shortname)
                               VALUES(?,?,?)""", (i, url, shortname))
             connection.commit()
         except:
-            x = x + 1 # nur, damit etwas passiert
+            pass
         else:
             break
     connection.close()
     result = i
+
+def removestream(aname):
+    aname = str(aname)
+    if "http" not in aname:
+        connection = sqlite3.connect("database/raspido.db")
+        cursor = connection.cursor()
+        connection.close()
+    result =
 #if parameter 1 = add:
 if sys.argv[1] == "add":
     try:
@@ -54,26 +61,21 @@ if sys.argv[1] == "add":
     if error != True:
         erg = addstream(url, shortname)
         if erg < 100:
-            save_stdout = sys.stdout
-            fh = open("bridge.txt","w")
-            sys.stdout = fh
-            print("okay")
-            sys.stdout = save_stdout
-            fh.close()
+            print("Operation successfully performed.")
         else:
-            save_stdout = sys.stdout
-            fh = open("bridge.txt","w")
-            sys.stdout = fh
-            print("full")
-            sys.stdout = save_stdout
-            fh.close()
+            print("Command not feasible. Database is full!")
+"""
+Please kepp in mind ;)
+save_stdout = sys.stdout
+fh = open("bridge.txt","w")
+sys.stdout = fh
+print("full")
+sys.stdout = save_stdout
+fh.close()
+"""
     else:
-        save_stdout = sys.stdout
-        fh = open("bridge.txt","w")
-        sys.stdout = fh
-        print("parameter error")
-        sys.stdout = save_stdout
-        fh.close()
+        print("Command not feasible. You gave me the wrong parameters!")
+#if parameter 1 = listall
 if sys.argv[1] == "listall":
     print("Collecting data from default database.")
     print(" ")

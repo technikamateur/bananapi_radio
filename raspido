@@ -59,7 +59,7 @@ then
   echo -e "stop: $0 stop"
   echo -e "add url: $0 add url shortname"
   echo -e "delete url: $0 remove shortname"
-  echo -e "list saved url's with shortname: $0 list"
+  echo -e "list saved url's with shortname: $0 listall"
   exit 1
 fi
 /etc/raspido/update.sh check
