@@ -2,6 +2,7 @@
 
 <img align="right" src="https://github.com/technikamateur/raspido/blob/master/logo/raspido_128px_transparent.png" alt="logo raspido">
 ***
+[![License](https://img.shields.io/badge/License-GPLv3-green.svg)](http://www.gnu.org/licenses/gpl.html)
 ##### Important information:
 All releases, wich are marked with the tag *beta* are not stable and can damage your hardware.
 The usage of raspido is your own risk! Please understand that this Software comes with NO WARRANTY! For more information read *license.txt*.
