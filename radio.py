@@ -29,6 +29,7 @@ mpc = {
 class Radio:
     _stations = None
     _station_pos = 1
+    radio_mode = True
 
     def init_app(self):
         self._stations = [line.rstrip() for line in open('stations.m3u', 'r')]
@@ -37,8 +38,14 @@ class Radio:
         subprocess.run(
             ["mpc", "-h", PH, "play", str(self._station_pos)], shell=False)
 
-    def next_station(self):
+    def next(self):
         subprocess.run(["mpc", "-h", PH, "next"], shell=False)
+
+    def prev(self):
+        subprocess.run(["mpc", "-h", PH, "prev"], shell=False)
+
+    def load_playlist(self, playlist):
+        subprocess.run(["mpc", "-h", PH, "load", playlist], shell=False)
 
 
 Raspido = Radio()
