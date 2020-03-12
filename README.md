@@ -7,8 +7,8 @@ bananapi_radio is a webradio software for the banana pi. It is simply a python3 
 
 ### Installation:
 Please make sure, that the following packages are installed. They are necessary to use raspido.
-- python3
-- python3-pip
+- python3 python3-pip python3-dev
+- libfreetype6-dev libjpeg-dev build-essential libopenjp2-7 libtiff5
 - mpd
 - mpc
 
